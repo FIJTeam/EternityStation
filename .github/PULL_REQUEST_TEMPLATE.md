@@ -1,30 +1,26 @@
-<!-- If this is your first PR, or not, take the time to read our CONTRIBUTING.md file! You can see it here: https://github.com/yogstation13/Yogstation/blob/master/.github/CONTRIBUTING.md
-You can remove all headers (Document the changes, Spriting and Wiki documentation) if there is no wiki documentation required but you must still explain what the pr is and why it needs to be added to the game. Directors+ Are immune from this rule in exceptional circumstances. -->
+<!-- Если это ваш первый PR или нет, найдите время прочитать наш файл CONTRIBUTING.md! Вы можете посмотреть его здесь: https://github.com/FIJTeam/EternityStation/blob/fijmaster/.github/CONTRIBUTING.md
+Вы можете убрать все заголовки (Документирование изменений, Спрайтинг и Вики-документация), если Вики-документация не требуется, то вы всё равно должны объяснить, что это за PR и почему его нужно добавить в игру. Старший состав и выше имеют иммунитет от этого правила в исключительных обстоятельствах. -->
 
-# Document the changes in your pull request
+# Распишите ваши изменения в этом Pull Request'е
 
-<!-- Remove this text and explain what the purpose of your PR is.
+<!-- Удалите этот текст и объясните, в чем цель вашего PR.
 
-Mention if you have tested your changes. If you changed a map, make sure you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to link the PR to the corresponding Issue number #169420.
+Упомяните, тестировали ли вы свои изменения. Если вы изменили карту, убедитесь, что вы использовали инструмент mapmerge.
 
-Prefix the PR title with [admin] if it involves something admin related. 
-Prefix the PR title with [s] if you are fixing an exploit, so that it is not announced on the Yogstation Discord and the server.
+Помните: То, что очевидно для вас, может не быть очевидным для других. Объясните свой PR полностью, даже если вам кажется, что это само собой логичное и очевидное.-->
 
-Remember: something that is self-evident to you might not be to others. Explain your rationale fully, even if you feel it goes without saying.-->
+# Спрайтинг
+<!-- Если вы добавляете в игру новые спрайты, добавьте изображение спрайта в его относительном контексте, т.е. Одежда на мобе, к примеру. -->
 
-# Spriting
-<!-- If you are adding new sprites to the game please add a picture of the sprite in its relative context, ie. Clothing on a mob. -->
+# Вики-документация
 
-# Wiki Documentation
+<!-- Удалите этот текст и напишите всю информацию о ваших изменениях, которая должна быть известна и задокументирована на вики. 
+Важная документация включает, но не ограничивается: любые числовые значения, которые были изменены, любые изображения, которые необходимо обновить, имена конкретных страниц, на которые повлияют ваши изменения. -->
 
-<!-- Remove this text and write all information regarding your changes that should be known and documented through the Yogstation Wiki. 
-Important documentation information includes, but is not limited to: any numerical values that have been changed, any images that have to be updated, names of specific pages that will be impacted by your changes. -->
+# Список изменений
 
-# Changelog
-
-<!-- Edit the changelog below to reflect the changes made by this PR, even if the changes are minor - required for every PR that has player-facing changes.
-If you add a name after the ':cl:', that name will be used in the changelog. Leave it empty to use your GitHub name. -->
+<!-- Отредактируйте журнал изменений ниже, чтобы отразить изменения, внесенные этим PR, даже если изменения незначительны — требуется для каждого PR, в котором есть изменения, обращенные к игроку.
+Если вы добавите имя после ':cl:', это имя будет использоваться в журнале изменений. Оставьте поле пустым, чтобы использовать свое имя GitHub. -->
 
 :cl:  
 rscadd: Added new things  
