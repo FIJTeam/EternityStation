@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `achievements` (
   `id` int(10) unsigned NOT NULL,
   `descr` varchar(2048) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `admin`;
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `ckey` varchar(32) NOT NULL,
   `rank` varchar(32) NOT NULL,
   PRIMARY KEY (`ckey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `admin_log`;
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `admin_log` (
   `target` varchar(32) NOT NULL,
   `log` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=342 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=342 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `admin_ranks`;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `admin_ranks` (
   `exclude_flags` smallint(5) unsigned NOT NULL,
   `can_edit_flags` smallint(5) unsigned NOT NULL,
   PRIMARY KEY (`rank`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `admin_tickets`;
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `admin_tickets` (
   PRIMARY KEY (`id`),
   KEY `idx_round` (`round_id`),
   KEY `idx_round_ticket` (`round_id`,`ticket_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=157319 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=157319 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `admin_ticket_interactions`;
 CREATE TABLE IF NOT EXISTS `admin_ticket_content` (
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `admin_ticket_content` (
   `text` text,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`ticket_id`) REFERENCES `admin_tickets`(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `antag_tokens`;
 CREATE TABLE IF NOT EXISTS `antag_tokens` (
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `antag_tokens` (
   `redeemed` tinyint(3) unsigned NOT NULL DEFAULT 0,
   `round_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `ban`;
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `ban` (
   KEY `idx_ban_isbanned` (`ckey`,`role`,`unbanned_datetime`,`expiration_time`),
   KEY `idx_ban_isbanned_details` (`ckey`,`ip`,`computerid`,`role`,`unbanned_datetime`,`expiration_time`),
   KEY `idx_ban_count` (`bantime`,`a_ckey`,`applies_to_admins`,`unbanned_datetime`,`expiration_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=39587 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39587 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `bound_credentials`;
@@ -127,7 +127,7 @@ CREATE TABLE `bound_credentials` (
   KEY `idx_ckey_lookup` (`ckey`),
   KEY `idx_cid_lookup` (`computerid`),
   KEY `idx_ip_lookup` (`ip`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `connection_log`;
 CREATE TABLE IF NOT EXISTS `connection_log` (
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `connection_log` (
   `computerid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_review` (`ckey`, `computerid`, `ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=4192042 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4192042 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `death`;
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `death` (
   `last_words` varchar(255) DEFAULT NULL,
   `suicide` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1422836 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1422836 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `donors`;
@@ -197,14 +197,14 @@ CREATE TABLE IF NOT EXISTS `donors` (
   UNIQUE KEY `transaction_id` (`transaction_id`),
   KEY `ckey` (`ckey`),
   KEY `forum_username` (`discord_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=761 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=761 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `earned_achievements`;
 CREATE TABLE IF NOT EXISTS `earned_achievements` (
   `ckey` varchar(32) NOT NULL,
   `id` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `feedback`;
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `version` tinyint(3) unsigned NOT NULL,
   `json` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`json`)),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=349150 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=349150 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `feedback_normalized`;
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `feedback_normalized` (
   `version` tinyint(3) unsigned NOT NULL,
   `data` longtext NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6204920 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6204920 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `ipintel`;
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `ipintel` (
   `intel` double NOT NULL DEFAULT 0,
   PRIMARY KEY (`ip`),
   KEY `idx_ipintel` (`ip`,`intel`,`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `legacy_population`;
@@ -254,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `legacy_population` (
   `server_port` smallint(5) unsigned NOT NULL,
   `round_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=490160 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=490160 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `library`;
@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `library` (
   KEY `idx_lib_id_del` (`id`,`deleted`),
   KEY `idx_lib_del_title` (`deleted`,`title`),
   KEY `idx_lib_search` (`deleted`,`author`,`title`,`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=2017 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2017 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `loa`;
@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `loa` (
   `revoked` bit(1) DEFAULT NULL,
   `reason` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=419 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=419 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `mentor`;
@@ -294,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `mentor` (
   `ckey` varchar(32) NOT NULL,
 	`position` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `mentor_memo`;
@@ -305,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `mentor_memo` (
   `last_editor` varchar(32) DEFAULT NULL,
   `edits` mediumtext DEFAULT NULL,
   PRIMARY KEY (`ckey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `messages`;
@@ -330,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   KEY `idx_msg_ckey_time` (`targetckey`,`timestamp`,`deleted`),
   KEY `idx_msg_type_ckeys_time` (`type`,`targetckey`,`adminckey`,`timestamp`,`deleted`),
   KEY `idx_msg_type_ckey_time_odr` (`type`,`targetckey`,`timestamp`,`deleted`)
-) ENGINE=InnoDB AUTO_INCREMENT=75629 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75629 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `mfa_logins`;
 CREATE TABLE IF NOT EXISTS `mfa_logins` (
@@ -339,14 +339,14 @@ CREATE TABLE IF NOT EXISTS `mfa_logins` (
 	`cid` varchar(32) NOT NULL,
 	`datetime` timestamp NOT NULL DEFAULT current_timestamp(),
 	PRIMARY KEY (`ckey`,`ip`,`cid`, `datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `misc`;
 CREATE TABLE IF NOT EXISTS `misc` (
   `key` varchar(32) NOT NULL,
   `value` varchar(2048) NOT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `player`;
@@ -372,7 +372,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   PRIMARY KEY (`ckey`),
   KEY `idx_player_cid_ckey` (`computerid`,`ckey`),
   KEY `idx_player_ip_ckey` (`ip`,`ckey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `poll_option`;
@@ -388,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `poll_option` (
   `default_percentage_calc` tinyint(3) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `idx_pop_pollid` (`pollid`)
-) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `poll_question`;
@@ -407,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `poll_question` (
   KEY `idx_pquest_question_time_ckey` (`question`,`starttime`,`endtime`,`createdby_ckey`,`createdby_ip`),
   KEY `idx_pquest_time_admin` (`starttime`,`endtime`,`adminonly`),
   KEY `idx_pquest_id_time_type_admin` (`id`,`starttime`,`endtime`,`polltype`,`adminonly`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `poll_textreply`;
@@ -421,7 +421,7 @@ CREATE TABLE IF NOT EXISTS `poll_textreply` (
   `adminrank` varchar(32) NOT NULL DEFAULT 'Player',
   PRIMARY KEY (`id`),
   KEY `idx_ptext_pollid_ckey` (`pollid`,`ckey`)
-) ENGINE=InnoDB AUTO_INCREMENT=365 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=365 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `poll_vote`;
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `poll_vote` (
   PRIMARY KEY (`id`),
   KEY `idx_pvote_pollid_ckey` (`pollid`,`ckey`),
   KEY `idx_pvote_optionid_ckey` (`optionid`,`ckey`)
-) ENGINE=InnoDB AUTO_INCREMENT=12987 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12987 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `role_time`;
@@ -446,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `role_time` (
   `job` varchar(128) NOT NULL,
   `minutes` int(10) unsigned NOT NULL,
   PRIMARY KEY (`ckey`,`job`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `role_time_log`;
@@ -460,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `role_time_log` (
   KEY `ckey` (`ckey`),
   KEY `job` (`job`),
   KEY `datetime` (`datetime`)
-) ENGINE=InnoDB AUTO_INCREMENT=7175905 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7175905 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `round`;
@@ -480,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `round` (
   `map_name` varchar(32) DEFAULT NULL,
   `station_name` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32366 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32366 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `schema_revision`;
@@ -489,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `schema_revision` (
   `minor` tinyint(3) unsigned NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`major`,`minor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `stickyban`;
@@ -499,7 +499,7 @@ CREATE TABLE IF NOT EXISTS `stickyban` (
   `banning_admin` varchar(32) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ckey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `stickyban_matched_cid`;
@@ -509,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `stickyban_matched_cid` (
   `first_matched` datetime NOT NULL DEFAULT current_timestamp(),
   `last_matched` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`stickyban`,`matched_cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `stickyban_matched_ckey`;
@@ -520,7 +520,7 @@ CREATE TABLE IF NOT EXISTS `stickyban_matched_ckey` (
   `last_matched` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `exempt` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`stickyban`,`matched_ckey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `stickyban_matched_ip`;
@@ -530,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `stickyban_matched_ip` (
   `first_matched` datetime NOT NULL DEFAULT current_timestamp(),
   `last_matched` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`stickyban`,`matched_ip`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `proxy_cache`;
 CREATE TABLE `proxy_cache` (
