@@ -28,6 +28,27 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	RADIO_KEY_AI_PRIVATE = RADIO_CHANNEL_AI_PRIVATE, // AI Upload channel
 	MODE_KEY_VOCALCORDS = MODE_VOCALCORDS,		// vocal cords, used by Voice of God
 
+	//Localization for Eternity
+	"к" = MODE_R_HAND,
+	"д" = MODE_L_HAND,
+	"ш" = MODE_INTERCOM,
+
+	// Department
+	"р" = MODE_DEPARTMENT,
+	"с" = RADIO_CHANNEL_COMMAND,
+	"т" = RADIO_CHANNEL_SCIENCE,
+	"ь" = RADIO_CHANNEL_MEDICAL,
+	"у" = RADIO_CHANNEL_ENGINEERING,
+	"ы" = RADIO_CHANNEL_SECURITY,
+	"г" = RADIO_CHANNEL_SUPPLY,
+	"м" = RADIO_CHANNEL_SERVICE,
+
+	// Faction
+	"е" = RADIO_CHANNEL_SYNDICATE,
+	"н" = RADIO_CHANNEL_CENTCOM,
+
+	// Misc
+	"щ" = RADIO_CHANNEL_AI_PRIVATE,
 
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -50,13 +71,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"å" = RADIO_CHANNEL_SYNDICATE,
 	"í" = RADIO_CHANNEL_CENTCOM,
 
-	// Admin
-	"ç" = MODE_ADMIN,
-	"â" = MODE_ADMIN,
-
 	// Misc
 	"ù" = RADIO_CHANNEL_AI_PRIVATE,
-	"÷" = MODE_VOCALCORDS
 ))
 ///This is the list of all keys that are not techincially "radios" but use radio prefixes like :g and .b
 GLOBAL_LIST_INIT(special_radio_keys, list(
