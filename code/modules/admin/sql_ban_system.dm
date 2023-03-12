@@ -385,7 +385,7 @@
 	reason = href_list["reason"]
 	if(!reason)
 		error_state += "No reason was provided."
-	if(length(reason) > 600)
+	if(length_char(reason) > 600)
 		error_state += "Reason cannot be more than 600 characters."
 	if(href_list["editid"])
 		edit_id = href_list["editid"]
