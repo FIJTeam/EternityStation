@@ -38,6 +38,6 @@ jobs:
           git pull origin fijmaster
           git commit -m "Automatic changelog compile [ci skip]" -a || true
       - name: "Push"
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@fijmaster
         with:
           github_token: ${{ secrets.JAMIE }}
