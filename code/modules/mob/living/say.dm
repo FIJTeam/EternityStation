@@ -47,8 +47,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"е" = RADIO_CHANNEL_SYNDICATE,
 	"н" = RADIO_CHANNEL_CENTCOM,
 
+	// Admin
+	"з" = MODE_ADMIN,
+	"в" = MODE_DEADMIN,
+
 	// Misc
 	"щ" = RADIO_CHANNEL_AI_PRIVATE,
+	"ч" = MODE_VOCALCORDS,
 
 	//kinda localization -- rastaf0
 	//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
@@ -71,8 +76,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	"å" = RADIO_CHANNEL_SYNDICATE,
 	"í" = RADIO_CHANNEL_CENTCOM,
 
+	// Admin
+	"ç" = MODE_ADMIN,
+	"â" = MODE_DEADMIN,
+
 	// Misc
 	"ù" = RADIO_CHANNEL_AI_PRIVATE,
+	"÷" = MODE_VOCALCORDS
 ))
 ///This is the list of all keys that are not techincially "radios" but use radio prefixes like :g and .b
 GLOBAL_LIST_INIT(special_radio_keys, list(
@@ -83,7 +93,14 @@ GLOBAL_LIST_INIT(special_radio_keys, list(
 	MODE_KEY_DARKSPAWN = MODE_TOKEN_DARKSPAWN,
 	MODE_KEY_MONKEY = MODE_TOKEN_MONKEY,
 	MODE_KEY_HOLOPAD = MODE_TOKEN_HOLOPAD,
-	MODE_KEY_SING = MODE_SING
+	MODE_KEY_SING = MODE_SING,
+	
+	"и" = MODE_TOKEN_BINARY,
+	"п" = MODE_TOKEN_CHANGELING,
+	"ф" = MODE_TOKEN_ALIEN,
+	"ц" = MODE_TOKEN_DARKSPAWN,
+	"л" = MODE_TOKEN_MONKEY,
+	"р" = MODE_TOKEN_HOLOPAD
 ))
 
 
@@ -121,7 +138,7 @@ GLOBAL_LIST_INIT(special_radio_keys, list(
 	var/list/message_mods = list()
 	var/original_message = message
 	message = get_message_mods(message, message_mods)
-	var/datum/saymode/saymode = SSradio.saymodes[message_mods[RADIO_KEY]]
+	var/datum/saymode/saymode = SSradio.saymodes[lowertext(convert_ru_key_to_en_key(message_mods[RADIO_KEY]))]
 	var/in_critical = InCritical()
 
 	if(message_mods[RADIO_EXTENSION] == MODE_ADMIN)
